@@ -1,0 +1,19 @@
+1.install nodejs python3
+
+2.npm install following package:
+express
+cheerio
+bodyParser
+multer 
+spawn
+
+3.run:
+node server.js
+
+4.access:
+http://localhost:8081/home.html
+
+5.Notice:
+This is very important!!!!!!
+The input file could not use the images which has already in 'store' directory, otherwise something wrong would happen.
+Please kindly empty the store directory everytime after you finishing test.

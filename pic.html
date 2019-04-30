@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+img{
+    max-width:100%;
+    max-height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+button {
+   border-color:#ced4da !important;
+}
+.outer {  height: 300px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>PICTURE SEARCH</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form action="/file_upload" method="post" enctype="multipart/form-data">
+        <label class="sr-only" for="textinput">Name</label>
+        <input type="text" name="input_text" class="form-control rounded" aria-label="Small" id="textinput" placeholder="input text..." >
+        <div class="input-group">
+        <div class="custom-file">
+          <input type="file" name = "image" class="custom-file-input" id="inputGroupFile">
+          <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+          <script>
+              $('#inputGroupFile').on('change',function(){
+                  //get the file name
+                  var fileName = $(this).val();
+                  //replace the "Choose a file" label
+                  $(this).next('.custom-file-label').html(fileName);
+              })
+          </script>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Submit</button>
+        </div>
+        </div>
+        
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img0" src="public/2.png">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img1" src="public/2.png">
+    </div>
+    <div class="col-sm-3 text-center">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img2" src="public/2.png">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img3" src="public/2.png">
+    </div>
+    <div class="col-sm-3 text-center">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img4" src="public/2.png">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img5" src="public/2.png">
+    </div>
+    <div class="col-sm-3 text-center">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img6" src="public/2.png">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img7" src="public/2.png">
+    </div>
+    <div class="col-sm-3 text-center">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img8" src="public/2.png">
+    </div>
+    <div class="col-sm-3 border text-center outer">
+        <img id="img9" src="public/2.png">
+    </div>
+    <div class="col-sm-3 text-center">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
