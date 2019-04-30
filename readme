@@ -17,3 +17,9 @@ http://localhost:8081/home.html
 This is very important!!!!!!
 The input file could not use the images which has already in 'store' directory, otherwise something wrong would happen.
 Please kindly empty the store directory everytime after you finishing test.
+
+6.Please kindly notice that you need to change the proper location of 'get_input_image_feature.py' when you run the 'script.py'
+
+7.The image dataset is ignored during pushing. Please add manually under the 'public' directory. i.e. 'ENGG5106_website/public/images/001.Black_footed_Albatross/Black_Footed_Albatross_0001_796111.jpg'
+
+8.model.pth is ignored during pushing. Please add manually under the root('ENGG5106_website') directory. i.e. 'ENGG5106_website/model.pth'
