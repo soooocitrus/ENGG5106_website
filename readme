@@ -1,14 +1,29 @@
 1.install nodejs python3
 
-2.npm install following package:
+
+2.1 npm install following package:
 express
 cheerio
 bodyParser
 multer 
 spawn
 
+2.2 pip install (or conda install):
+flask
+pillow
+matplotlib
+numpy
+torch
+Augmentor
+torchvision
+tqdm
+
 3.run:
+Frontend:
 node server.js
+Backend:
+python3 app.py
+
 
 4.access:
 http://localhost:8081/home.html

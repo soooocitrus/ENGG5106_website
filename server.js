@@ -5,6 +5,7 @@ var cheerio = require("cheerio");
 var bodyParser = require('body-parser');
 var multer  = require('multer');
 var spawn = require("child_process").spawn;
+const request = require('request');
  
 app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,16 +31,16 @@ app.post('/file_upload', function (req, res) {
 	console.log(input_text); 
 	console.log(req.files[0].originalname);
 
-	// send back data
-	var pythonProcess = spawn('python',[process.cwd() + "/script.py", input_text, req.files[0].originalname]);
-	pythonProcess.stdout.on('data', function(data){
-		var sendBackData = data.toString();
-		console.log(sendBackData);
-		sendBackData = sendBackData.split("answeris")[1].split(" ");
-		console.log("python send back " + sendBackData);		
-		res.writeHead(200,{'Content-Type':'text/html'})
+	// HTTP Version
+	request(('http://127.0.0.1:5000/invoke?query= ' + input_text + '&imgpath=store/' + req.files[0].originalname), {json: false},
+	 (err, response, body) => {
+  		if (err) { return console.log(err); }
+  	        console.log(body);
 
-		fs.readFile('./pic.html','utf-8',function(err,data){
+  		sendBackData = body.split(',');
+  		console.log(sendBackData);
+  		res.writeHead(200,{'Content-Type':'text/html'});
+        fs.readFile('./pic.html','utf-8',function(err,data){
 			if(err){
 				throw err ;
 			}
@@ -51,8 +52,8 @@ app.post('/file_upload', function (req, res) {
 			}
 			res.end($.html());
 		})
-	});	
-})
+	});
+});
  
 var server = app.listen(8081, function () {
  
@@ -61,4 +62,4 @@ var server = app.listen(8081, function () {
  
   console.log("access address http://%s:%s", host, port)
  
-})
+});
