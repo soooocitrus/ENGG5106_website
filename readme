@@ -24,6 +24,10 @@ node server.js
 Backend:
 python3 app.py
 
+Remember to change model_path in app.py:
+app.embedder = ImageEmbedder(model_path='/Users/hahaschool/Downloads/model_2.pth')
+To the sth you have.
+
 
 4.access:
 http://localhost:8081/home.html
