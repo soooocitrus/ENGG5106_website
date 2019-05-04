@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 var multer  = require('multer');
 var spawn = require("child_process").spawn;
 const request = require('request');
- 
+
+app.use('/store', express.static('store'));
 app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: './store'}).array('image'));
@@ -50,6 +51,9 @@ app.post('/file_upload', function (req, res) {
 			        $(e).attr("src", "/public/images/" + sendBackData[i]);
 			    });
 			}
+			$("img#orignalimage").each(function(j, e) {
+                $(e).attr("src", "/store/" + req.files[0].originalname);
+             });
 			res.end($.html());
 		})
 	});
